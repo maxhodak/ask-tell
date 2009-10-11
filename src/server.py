@@ -2,7 +2,7 @@
 
 import socket, random
 
-host = ''
+host = 'www.maxhodak.com'
 port = 11911
 backlog = 5
 size = 1024

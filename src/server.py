@@ -21,7 +21,7 @@ for line in f:
   if i > 50:
     break
   i += 1
-  messages.append(line)
+  messages.append(line.strip())
 logfile = open('/tmp/asktell.log','a+')
 while 1:
   client, address = s.accept()

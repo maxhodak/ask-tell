@@ -9,9 +9,12 @@ Copyright (c) 2009 Max Hodak. All rights reserved.
 
 import socket, sys
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(('maxhodak.com',11911))
-s.send(sys.argv[1])
-data = s.recv(1024)
-if data != 'true':
-  print "An error occurred: you message wasn't sent."
+try:
+  s.connect(('maxhodak.com',11911))
+  s.send(sys.argv[1])
+  data = s.recv(1024)
+  if data != 'true':
+    print "An error occurred: you message wasn't sent."
+except socket.error:
+  print "An error occurred.  The server might be down.  Try again in a few minutes?"
 s.close()

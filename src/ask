@@ -9,8 +9,11 @@ Copyright (c) 2009 Max Hodak. All rights reserved.
 
 import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(('maxhodak.com',11911))
-s.send('<ask>')
-data = s.recv(1024)
-s.close()
-print data
+try:
+  s.connect(('maxhodak.com',11911))
+  s.send('<ask>')
+  data = s.recv(1024)
+  s.close()
+  print data
+except socket.error:
+  print "An error occurred.  The server might be down.  Try again in a few minutes?"

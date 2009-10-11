@@ -11,6 +11,7 @@ s.bind((host,port))
 s.listen(backlog)
 messages = []
 next_msg = "Nothing here!"
+logfile = open('/tmp/asktell.log','a+')
 while 1:
   client, address = s.accept()
   data = client.recv(size)
@@ -31,6 +32,7 @@ while 1:
           ind = len(messages)-1
         next_msg = messages[ind]
     else:
+      logfile.write(data+"\n")
       messages.append(data)
       client.send("true")
   client.close()

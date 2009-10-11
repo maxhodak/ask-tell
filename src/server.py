@@ -7,7 +7,6 @@ port = 11911
 backlog = 5
 size = 1024
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.allow_reuse_address = 1
 s.bind((host,port))
 s.listen(backlog)
 messages = []

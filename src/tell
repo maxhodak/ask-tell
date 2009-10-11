@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+# encoding: utf-8
+"""
+tell.py
+
+Created by Max Hodak on 2009-10-11.
+Copyright (c) 2009 Max Hodak. All rights reserved.
+"""
+
+import socket, sys
+
+HOST = 'localhost'
+PORT = 11911
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((HOST, PORT))
+s.send(sys.argv[1])
+data = s.recv(1024)
+s.close()

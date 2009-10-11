@@ -1,0 +1,6 @@
+## Ask/Tell
+
+  tell "Google Maps is the best."
+
+  ask
+  >> True that; double true.

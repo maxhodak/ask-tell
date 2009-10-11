@@ -27,7 +27,7 @@ while 1:
             denom = float(len(messages)-1)
         ind = int(round(random.expovariate(1.0/denom),0))
         ind = len(messages)-ind
-        if ind > len(messages)-1:
+        if ind > len(messages)-1 or ind < 0:
           ind = len(messages)-1
         next_msg = messages[ind]
     else:

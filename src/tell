@@ -14,7 +14,7 @@ try:
   s.send(sys.argv[1])
   data = s.recv(1024)
   if data != 'true':
-    print "An error occurred: you message wasn't sent."
+    print "An error occurred: your message wasn't sent."
 except socket.error:
   print "An error occurred.  The server might be down.  Try again in a few minutes?"
 s.close()

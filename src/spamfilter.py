@@ -9,4 +9,4 @@ f = open("notspam.log",'r')
 for line in f:
   guesser.train('notspam', line.strip())
 
-guesser.save('my_guesser.bay')
+guesser.save('spam.bay')

@@ -4,7 +4,7 @@ import socket, random
 from reverend.thomas import Bayes
 
 guesser = Bayes()
-guesser.load('my_guesser.bay')
+guesser.load('spam.bay')
 
 host = 'maxhodak.com'
 port = 11911

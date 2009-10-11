@@ -19,6 +19,7 @@ while 1:
     if len(data) > 300:
       logfile.write("Rejected due to length\n")
       logfile.flush()
+      client.send("false")
     else:
       if data == '<ask>':
         client.send(next_msg)

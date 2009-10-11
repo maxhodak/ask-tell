@@ -22,18 +22,19 @@ for line in f:
     break
   i += 1
   messages.append(line.strip())
-logfile = open('/tmp/asktell.log','a+')
+spamlog = open('/tmp/asktell.spam.log','a+')
+notspamlog = open('/tmp/asktell.notspam.log','a+')
 while 1:
   client, address = s.accept()
   data = client.recv(size)
   if data:
     if len(data) > 300:
-      logfile.write("Message rejected.\n")
-      logfile.flush()
+      spamlog.write(data+"\n")
+      spamlog.flush()
       client.send("false")
     elif len(guesser.guess(data)) > 0 and guesser.guess(data)[0][0] == 'spam':
-      logfile.write("Message rejected.\n")
-      logfile.flush()
+      spamlog.write(data+"\n")
+      spamlog.flush()
       client.send("false")
     else:
       if data == '<ask>':
@@ -54,8 +55,8 @@ while 1:
       else:
         if len(messages) > 50:
           messages.pop(0)
-        logfile.write(data+"\n")
-        logfile.flush()
+        notspamlog.write(data+"\n")
+        notspamlog.flush()
         messages.append(data)
         client.send("true")
   client.close()

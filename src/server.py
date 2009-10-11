@@ -27,12 +27,11 @@ while 1:
   client, address = s.accept()
   data = client.recv(size)
   if data:
-    print guesser.guess(data)
     if len(data) > 300:
       logfile.write("Message rejected.\n")
       logfile.flush()
       client.send("false")
-    else:
+    elif len(guesser.guess(data)) > 0 and guesser.guess(data)[0][0] == 'spam':
       if data == '<ask>':
         client.send(next_msg)
         if len(messages) > 0:

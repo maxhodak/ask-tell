@@ -15,7 +15,7 @@ s.bind((host,port))
 s.listen(backlog)
 messages = []
 next_msg = "Nothing here!"
-f = open("/tmp/notspam.log",'r')
+f = open("/tmp/asktell.notspam.log",'r')
 i = 0
 for line in f:
   if i > 50:

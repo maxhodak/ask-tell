@@ -10,4 +10,8 @@
 
 ## Install
 
+  Really simple:
+
     make install
+
+  You'll be prompted for your password (it copies ask & tell into your usr-local-bin), and then you'll immediately be able to start ask'ing and tell'ing.

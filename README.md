@@ -6,3 +6,8 @@
 
     ask
     >> True that; double true.
+
+
+## Install
+
+    make install

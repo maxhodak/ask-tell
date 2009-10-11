@@ -1,0 +1,11 @@
+from reverend.thomas import Bayes
+guesser = Bayes()
+guesser.train('spam', '1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111')
+guesser.train('spam', 'REDDIT.COM-PICS-POLITICS-FUNNY-WTF-PROGRAMMING-GAMING-OFFBEAT-BUSINESS-AWW-CLOJURE <E2><80><93> ASKREDDIT-SCIENCE-IAMA-ATHEISM-WORLDNEWS-MARIJUANA-TECHNOLOGY-DOESANYBODYELSE-COMICS-ECONOMICS-VIDEOS-MUSIC-NSFW-ENTERTAINMENT-LIBERTARIAN-NEWS-LINUX-TODAYILEARNED-ENVIRONMENT-GONEWILD-BESTOF-WIKIPEDIA-SCIFI-GEEK-FFFFFFFUUUUUUUUUUUU-SELF-CONSPIRACY-HEALTH-CANADA-CIRCLEJERK-OBAMA-LGBT-SPACE-SPORTS-SEX-YOUSHOULDKNOW-ECONOMY-MOVIES-LADYBASHING-CARLHPROGRAMMINGEDIT <C2><BB>')
+guesser.train('spam', 'WTF IS WRONG WITH CHILDREN/PARENTS THESE DAYS')
+guesser.train('spam', '692 points | 588 comments')
+guesser.train('spam', 'from my dads facebook Happy birthday to my father Sherman who is 86 today When he was a young man a Website was a spiders home Memo')
+guesser.train('notspam', 'Late night in Mountain View')
+guesser.train('notspam', 'Hanging out at the Dojo')
+guesser.train('notspam', 'That Conan a felt like Ajay would be relevant for a general audience and didnt bring him on for the sole purpose of humiliating him speaks well for the acceptance of engineering in US society.')
+guesser.save('my_guesser.bay')

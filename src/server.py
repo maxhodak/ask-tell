@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 
 import socket, random
+from reverend.thomas import Bayes
+
+guesser = Bayes()
+guesser.load('my_guesser.bay')
 
 host = 'maxhodak.com'
 port = 11911
@@ -23,8 +27,8 @@ while 1:
   client, address = s.accept()
   data = client.recv(size)
   if data:
-    if len(data) > 300:
-      logfile.write("Rejected due to length\n")
+    if len(data) > 300 or guesser.guess(data) == 'spam':
+      logfile.write("Message rejected.\n")
       logfile.flush()
       client.send("false")
     else:

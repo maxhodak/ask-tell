@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-ask.py
+ask
 
 Created by Max Hodak on 2009-10-11.
 Copyright (c) 2009 Max Hodak. All rights reserved.
@@ -9,11 +9,12 @@ Copyright (c) 2009 Max Hodak. All rights reserved.
 
 import socket
 
-HOST = 'www.maxhodak.com'
-PORT = 11911
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((HOST, PORT))
-s.send('<ask>')
-data = s.recv(1024)
-s.close()
-print data
+try:
+  s.connect(('maxhodak.com',11911))
+  s.send('<ask>')
+  data = s.recv(1024)
+  s.close()
+  print data
+except:
+  print "Something went wrong; maybe the server is temporarily down?"

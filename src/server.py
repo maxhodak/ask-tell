@@ -32,6 +32,10 @@ while 1:
       logfile.flush()
       client.send("false")
     elif len(guesser.guess(data)) > 0 and guesser.guess(data)[0][0] == 'spam':
+      logfile.write("Message rejected.\n")
+      logfile.flush()
+      client.send("false")
+    else:
       if data == '<ask>':
         client.send(next_msg)
         if len(messages) > 0:

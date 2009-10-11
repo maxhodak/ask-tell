@@ -33,6 +33,7 @@ while 1:
         next_msg = messages[ind]
     else:
       logfile.write(data+"\n")
+      logfile.flush()
       messages.append(data)
       client.send("true")
   client.close()

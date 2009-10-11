@@ -21,7 +21,10 @@ while 1:
         if len(messages) > 5:
           denom = 5.0
         else:
-          denom = float(len(messages)-1)
+          if float(len(messages)-1) < 1e-2:
+            denom = 1.0
+          else:
+            denom = float(len(messages)-1)
         ind = int(round(random.expovariate(1.0/denom),0))
         ind = len(messages)-ind
         if ind > len(messages)-1:
